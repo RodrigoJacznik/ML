@@ -22,8 +22,8 @@ const config = {
                 loaders: ['react-hot', 'babel', 'eslint']
             },
             {
-                test: /\.less$/,
-                loaders: ['style', 'css', 'less']
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass']
             },
             {
                 test: /\.(png|jpg)$/,

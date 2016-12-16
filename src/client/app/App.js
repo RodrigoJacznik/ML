@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-require('./styles/app.less');
+require('./styles/app.scss');
 
 import SearchBox from './components/SearchBox';
 
