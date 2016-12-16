@@ -20,6 +20,14 @@ const config = {
                 test: /\.jsx?/,
                 include: APP_DIR,
                 loaders: ['react-hot', 'babel', 'eslint']
+            },
+            {
+                test: /\.less$/,
+                loaders: ['style', 'css', 'less']
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'url-loader?limit=8192'
             }
         ]
     },
@@ -30,3 +38,4 @@ const config = {
 };
 
 module.exports = config;
+
