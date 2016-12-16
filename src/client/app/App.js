@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
+require('./styles/app.less');
+
+import SearchBox from './components/SearchBox';
+
 export default class App extends Component {
   render() {
     return (
-      <h1>Hello, Rodrigo.</h1>
+        <div>
+            <SearchBox />
+        </div>
     );
   }
 }
