@@ -19,7 +19,7 @@ const config = {
             {
                 test: /\.jsx?/,
                 include: APP_DIR,
-                loaders: ['react-hot', 'babel']
+                loaders: ['react-hot', 'babel', 'eslint']
             }
         ]
     },
