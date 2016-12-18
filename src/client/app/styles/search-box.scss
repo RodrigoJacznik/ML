@@ -1,21 +1,19 @@
 .search-box {
     & {
-        background-color: #FFE600;
+        background-color: $c-primary;
     }
 
     &__container {
-        text-align: right;
         margin: 0 auto;
         width: 90%;
         padding: 1em 0;
 
-        @media screen and (min-width: 768px) {
-            width: 70%;
+        @include desktop {
+            max-width: $max-screen-width;
         }
     }
 
     &__logo-wrapper {
-        display: inline-block;
         width: 10%;
         float: left;
     }
@@ -25,6 +23,7 @@
     }
 
     &__input-wrapper {
+        text-align: right;
         display: inline-table;
         width: 90%;
         height: 32px;
@@ -32,19 +31,15 @@
 
     &__input {
         display: table-cell;
-        font-size: 18px;
+        font-size: $font-size-x-large;
         padding: 0 5px;
         border: 0;
         width: 70%;
         height: 100%;
         border-radius: 3px 0 0 3px;
 
-        @media (min-width: 425px) and (max-width: 768px) {
-            width: 80%;
-        }
-
-        @media (min-width: 768px) {
-            width: 85%;
+        @include gt-tablet {
+            width: 90%;
         }
     }
 
@@ -55,12 +50,12 @@
         height: 100%;
         border-radius: 0 3px 3px 0;
         padding: 0 10px;
-        font-size: 18px;
+        font-size: 1.286em;
+        cursor: pointer;
 
         img {
             vertical-align: text-bottom;
         }
     }
-
 }
 
