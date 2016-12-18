@@ -1,3 +1,27 @@
 @import "reset";
-@import "search-box";
+@import "mixins";
 
+@import "variables";
+@import "search-box";
+@import "item";
+@import "item-list";
+@import "item-detail";
+@import "breadcrumb";
+
+body {
+    font-size: 14px;
+    background-color: $c-background;
+    color: $c-font-base;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
