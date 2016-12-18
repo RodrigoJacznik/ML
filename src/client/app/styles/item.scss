@@ -1,0 +1,48 @@
+.item {
+    & {
+        width: 100%;
+        background-color: $c-card;
+    }
+
+    &__img-container {
+        width: 30%;
+        float: left;
+        margin: $margin-base;
+    }
+
+    &__img {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    &__info {
+        width: 60%;
+        float: left;
+        padding: $margin-base 0;
+        position: relative;
+    }
+
+    &__price {
+        font-size: $font-size-x-large;
+    }
+
+    &__title {
+        margin-top: $margin-base-2x;
+        font-size: $font-size-large;
+    }
+
+    &__location {
+        font-size: $font-size-small;
+        position: absolute;
+        right: 0;
+        top: $margin-base + em-to-px($font-size-x-large);
+        margin-right: $margin-base;
+        color: $c-font-base-light;
+    }
+
+    &__separator {
+        margin: 0 auto;
+        width: 90%;
+        border: 1px solid $c-background;
+    }
+}
