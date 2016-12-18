@@ -1,0 +1,28 @@
+.breadcrumb-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: $margin-base;
+
+    @include desktop {
+        width: $max-screen-width;
+        padding-left: 0;
+    }
+}
+
+.breadcrumb {
+    &__item {
+        & {
+            display: inline-block;
+            color: $c-font-base-lighter;
+        }
+
+        &:not(:last-child):after {
+            content: '>';
+            padding: 5px;
+        }
+
+        &:last-child {
+            font-weight: bold;
+        }
+    }
+}
