@@ -1,0 +1,79 @@
+.item-detail {
+    & {
+        width: 100%;
+        margin: 0 auto;
+        background-color: $c-card;
+    }
+
+    @include desktop {
+        max-width: $max-screen-width;
+    }
+
+    &__img-container {
+        & {
+            width: 100%;
+            float: left;
+            text-align: center;
+
+            @include gt-tablet {
+                width: 70%;
+            }
+
+        }
+
+        img {
+            width: 100%;
+            max-width: 680px;
+            padding: $margin-base-2x $margin-base-2x 0 $margin-base-2x;
+        }
+    }
+
+    &__buy-info-container {
+        text-align: center;
+        width: 100%;
+        float: left;
+        padding: $margin-base-2x $margin-base-2x 0 $margin-base-2x;
+
+        @include gt-tablet {
+            width: 30%;
+            text-align: initial;
+        }
+    }
+
+    &__seller {
+        font-size: $font-size-regular;
+    }
+
+    &__name {
+        font-size: $font-size-xx-large;
+        margin: $margin-base 0 $margin-base-2x 0;
+    }
+
+    &__price {
+        font-size: $font-size-xxxx-large;
+        margin: $margin-base-2x 0;
+    }
+
+    &__buy {
+        width: 100%;
+        padding: $margin-base 0;
+        border: 0;
+        border-radius: 4px;
+        color: $c-font-white;
+        background-color: $c-buy;
+    }
+
+    &__description-container {
+        margin: $margin-base-2x;
+    }
+
+    &__description-title {
+        font-size: $font-size-xxx-large;
+    }
+
+    &__description {
+        font-size: $font-size-large;
+        padding: $margin-base-2x 0;
+        color: $c-font-base-light;
+    }
+}
