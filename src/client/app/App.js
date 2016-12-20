@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
+import { Router, Route, hashHistory } from 'react-router';
 
 require('./styles/app.scss');
 
-import SearchBox from './components/SearchBox';
-import ItemList from './components/ItemList';
-import ItemDetail from './components/ItemDetail';
-import Breadcrumb from './components/Breadcrumb';
+import MainLayout from './components/MainLayout';
+import ItemListLayout from './components/ItemListLayout';
+import ItemDetailLayout from './components/ItemDetailLayout';
 
 export default class App extends Component {
     render() {
         return (
-            <div>
-                <SearchBox />
-                <Breadcrumb />
-                <ItemList />
-                <ItemDetail />
-            </div>
+            <Router history={hashHistory}>
+                <Route path="/" component={MainLayout}>
+                    <Route path="/search" component={ItemListLayout} />
+                    <Route path="/item" component={ItemDetailLayout} />
+                </Route>
+            </Router>
         );
     }
 }
