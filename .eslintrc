@@ -28,6 +28,8 @@
         "no-unused-vars": 2,
         "no-mixed-spaces-and-tabs": 2,
         "no-const-assign": 2,
-        "semi": [2, "always"]
+        "semi": [2, "always"],
+
+        "react/prop-types": 0
     }
 }
