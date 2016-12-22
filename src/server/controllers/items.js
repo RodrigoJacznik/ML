@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
         .then((items) => res.json(items));
 });
 
-router.get('/:id', (req, res) => {
+router.get(['/:id', '/:id/description'], (req, res) => {
     item.get(req.params.id, req.session.token.access_token)
         .then((items) => res.json(items));
 });
