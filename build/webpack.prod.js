@@ -5,7 +5,7 @@ const BUILD_DIR = path.resolve(__dirname, '../src/client/public');
 const APP_DIR = path.resolve(__dirname, '../src/client/app');
 
 const config = {
-    devtool: 'cheap-eval-source-map',
+    devtool: 'cheap-module-source-map',
     entry: path.join(APP_DIR, 'index.js'),
     output: {
         path: BUILD_DIR,
@@ -37,7 +37,9 @@ const config = {
         }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: true }
+        })
     ]
 };
 
