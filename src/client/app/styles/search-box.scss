@@ -19,7 +19,7 @@
     }
 
     &__logo {
-        height: 32px;
+        height: 41px; // MAL lo mio
     }
 
     &__input-wrapper {
@@ -32,10 +32,9 @@
     &__input {
         display: table-cell;
         font-size: $font-size-x-large;
-        padding: 0 5px;
+        padding: 10px 10px;
         border: 0;
         width: 70%;
-        height: 100%;
         border-radius: 3px 0 0 3px;
 
         @include gt-tablet {

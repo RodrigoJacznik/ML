@@ -6,12 +6,14 @@
 
     &__img-container {
         width: 30%;
+        text-align: center;
         float: left;
         margin: $margin-base;
     }
 
     &__img {
         width: 100%;
+        max-width: 180px;
         border-radius: 4px;
     }
 
@@ -23,21 +25,25 @@
     }
 
     &__price {
-        font-size: $font-size-x-large;
+        font-size: $font-size-xx-large;
     }
 
     &__title {
         margin-top: $margin-base-2x;
-        font-size: $font-size-large;
+        font-size: $font-size-x-large;
     }
 
     &__location {
         font-size: $font-size-small;
         position: absolute;
         right: 0;
-        top: $margin-base + em-to-px($font-size-x-large);
+        top: $margin-base + em-to-px($font-size-xxx-large);
         margin-right: $margin-base;
         color: $c-font-base-light;
+    }
+
+    &__free-shipping {
+        margin-left: 1em;
     }
 
     &__separator {

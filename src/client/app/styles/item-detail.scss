@@ -59,6 +59,7 @@
         padding: $margin-base 0;
         border: 0;
         border-radius: 4px;
+        font-size: $font-size-xx-large;
         color: $c-font-white;
         background-color: $c-buy;
     }
@@ -75,5 +76,10 @@
         font-size: $font-size-large;
         padding: $margin-base-2x 0;
         color: $c-font-base-light;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }
