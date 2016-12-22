@@ -6,7 +6,6 @@ const API = 'https://api.mercadolibre.com';
  * Parsea un item a la salida esperada
  */
 function parseItem(item) {
-    let amount, decimals;
     [amount, decimals] = item.price.toString()
         .split('.').map((n) => parseInt(n));
 
@@ -20,7 +19,8 @@ function parseItem(item) {
         },
         picture: item.thumbnail,
         condition: item.condition,
-        free_shipping: item.shipping.free_shipping
+        free_shipping: item.shipping.free_shipping,
+        state: item.address ? item.address.state_name : undefined
     }
 }
 
@@ -43,22 +43,23 @@ function parseAuthor(author) {
 function get(id, token) {
     return Promise.all([
         fetch(`${API}/users/me?access_token=${token}`),
-        fetch(`${API}/items/${id}?access_token=${token}`)
+        fetch(`${API}/items/${id}?access_token=${token}`),
+        fetch(`${API}/items/${id}/descriptions/`)
     ]).then((values) => {
         return Promise.all(values.map((result) => result.json()));
-    }).then(([author, item]) => {
+    }).then(([author, item, descriptions]) => {
         const partialItem = parseItem(item)
-        partialItem.description = item.description;
         partialItem.picture = item.pictures[0].url;
         partialItem.sold_quantity = item.sold_quantity;
+        partialItem.description = descriptions.map((des) => des.text);
 
         return fetch(`${API}/categories/${item.category_id}`)
             .then((resp) => resp.json())
             .then((categories) => ({
                 author: parseAuthor(author),
                 item: partialItem,
-                categrories: categories.path_from_root.map((category) => category.name)
-            }))
+                categories: categories.path_from_root.map((category) => category.name)
+            }));
     });
 }
 
@@ -68,7 +69,7 @@ function get(id, token) {
  * @param term: termino de busqueda
  * @return []: lista de items que cumplen con `term`
  **/
-function fuzzy(term, token, limit=5) {
+function fuzzy(term, token, limit=4) {
     return Promise.all([
         fetch(`${API}/users/me?access_token=${token}`),
         fetch(`${API}/sites/MLA/search?q=${term}&limit=${limit}&access_token=${token}`)
