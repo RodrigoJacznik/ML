@@ -25,7 +25,6 @@ function objectToQuery (obj) {
  *
  */
 module.exports = (req, res, next) => {
-    console.log(req.sessionID);
     // No es necesario pedir un nuevo token
     if (req.session && req.session.token) {
         return next();
