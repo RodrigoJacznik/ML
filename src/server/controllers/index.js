@@ -6,11 +6,9 @@ const path = require('path');
 
 const CLIENT_PATH = path.join(__dirname, '..', '..', 'client');
 
-router.all('*', auth);
+router.use('/api/v1/items/', auth, require('./items'));
 
-router.use('/api/v1/items/', require('./items'));
-
-router.get('/', (req, res) => {
+router.get('*', auth, (req, res) => {
     res.sendFile(path.join(CLIENT_PATH, 'index.html'));
 });
 
