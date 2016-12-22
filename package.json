@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node src/server/app.js",
-    "pro": "webpack -p --config ./build/webpack.prod.js"
+    "build:pro": "webpack -p --config ./build/webpack.prod.js",
+    "start": "NODE_ENV=production PORT=8080 node src/server/app.js"
   },
   "author": "",
   "license": "ISC",
