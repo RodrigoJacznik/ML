@@ -1,17 +1,24 @@
 import React from 'react';
-import img from '../../public/assets/iphone.png';
+import { Link } from 'react-router';
 
-const Item = () => {
+const FREE_SHIPPING_IMG = require('../../public/assets/ic_shipping.png');
+
+const Item = (props) => {
+    const freeShipping = props.free_shipping ?
+        <img src={FREE_SHIPPING_IMG} className="item__free-shipping" alt="Free shipping" /> :
+        '';
+
     return (
         <div className="item">
             <div className="item__img-container">
-                <img src={img} alt="" className="item__img"/>
+                <img src={props.picture} alt="" className="item__img"/>
             </div>
 
             <div className="item__info">
-                <h3 className="item__price">1800</h3>
-                <h2 className="item__title">Apple Touch completo super genial con un monton de cosas</h2>
-                <p className="item__location">Capital Federal</p>
+                <h3 className="item__price">$ {props.price.amount}{ freeShipping }</h3>
+                <h2 className="item__title"><Link to={`/items/${props.id}`}>{props.title}</Link></h2>
+
+                <p className="item__location">{props.state}</p>
             </div>
             <div className="clear-fix"></div>
             <hr className="item__separator"/>

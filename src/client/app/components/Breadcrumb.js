@@ -1,12 +1,14 @@
 import React from 'react';
 
-const Breadcrumb = () => {
+const Breadcrumb = ({ links=[]}) => {
+    const items = links.map((item, key) => (
+        <li className="breadcrumb__item" key={key}>{item}</li>
+    ));
+
     return (
         <div className="breadcrumb-container">
             <ul className="breadcrumb">
-                <li className="breadcrumb__item">Apple</li>
-                <li className="breadcrumb__item">Celular</li>
-                <li className="breadcrumb__item">Iphone</li>
+                {items}
             </ul>
         </div>
     );
